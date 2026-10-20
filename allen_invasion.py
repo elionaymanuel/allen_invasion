@@ -21,8 +21,8 @@ def run_game():
         #observa eventos de teclado e de mouse
         game_functions.check_events(ship,configs,screen,bullets)
         ship.update()
-        game_functions.update_aliens(aliens)
-        game_functions.update_bullets(bullets)
+        game_functions.update_aliens(configs,aliens)
+        game_functions.update_bullets(aliens,bullets)
         game_functions.update_screen(configs,screen,ship,bullets,aliens)
 
         

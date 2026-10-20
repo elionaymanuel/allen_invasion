@@ -51,7 +51,7 @@ def check_events(ship,configs,screen,bullets):
             check_keyup_events(event,ship)
             
                 
-def update_bullets(bullets):
+def update_bullets(aliens,bullets):
     """atualiza a posicao dos projeteis e se livra dos projeteis antigos"""
     #atualiza a posição dos projeteis
     bullets.update()
@@ -60,6 +60,9 @@ def update_bullets(bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
             #print(len(bullets))
+    # Verifica se algum projétil atingiu os alienígenas
+    # Em caso afirmativo, livra-se do projétil e do alienígena
+    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
 
 
 
@@ -95,10 +98,30 @@ def create_fleet(configs,screen,ship,aliens):
         for alien_number in range(get_number_aliens_x(configs,alien.rect.width)):
             create_alien (configs,screen,aliens,alien_number,row_number)
 
-def update_aliens(aliens):
-    """Atualiza as posições de todos os alienígenas da frota."""
-    aliens.update()
+def check_fleet_edges(ai_settings, aliens):
+    """Responde apropriadamente se algum alienígena alcançou uma  borda."""
     
+    for alien in aliens.sprites():
+        if alien.check_edges():
+            change_fleet_direction(ai_settings, aliens)
+            break
+
+def change_fleet_direction(ai_settings, aliens):
+    """Faz toda a frota descer e muda a sua direção."""
+    for alien in aliens.sprites():
+        alien.rect.y += ai_settings.fleet_drop_speed
+    ai_settings.fleet_direction *= -1
+
+
+def update_aliens(configs,aliens):
+    """
+        Verifica se a frota está em uma das bordas
+        e então atualiza as posições de todos os alienígenas da frota.
+    """
+    check_fleet_edges(configs,aliens)
+    aliens.update()
+
+
 def update_screen (ai_settings,screen, ship,bullets, aliens):
     """atualiza as imagens da tela e alterna para a nova tela"""
     screen.fill(ai_settings.bg_color)

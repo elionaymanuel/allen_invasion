@@ -11,8 +11,10 @@ class Settings():
         self.ship_speed_factor = 1.5 
         #configuração dos projeteis
         self.bullet_speed_factor = 1
-        self.bullet_width = 3 #largura do retangulo
+        self.bullet_width = 500 #largura do retangulo (3)
         self.bullet_height = 15 # altura do retangulo
         self.bullet_color = (60, 60, 60)
         self.bullets_allowed = 3
         self.alien_speed_factor = 1
+        self.fleet_direction = 1 #  (+1:direita, -1: vai pra esquerda)
+        self.fleet_drop_speed = 10
