@@ -14,3 +14,5 @@ class Settings():
         self.bullet_width = 3 #largura do retangulo
         self.bullet_height = 15 # altura do retangulo
         self.bullet_color = (60, 60, 60)
+        self.bullets_allowed = 3
+        self.alien_speed_factor = 1

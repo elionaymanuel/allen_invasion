@@ -4,7 +4,7 @@ from pygame.sprite import Sprite
 class Bullet(Sprite):
     """Uma classe que administra projéteis disparados pela nave"""
     def __init__(self, configs,screen, ship):
-        """cria um objeto para o prjetio na posiçao atual da nave"""
+        """cria um objeto para o prjetil na posiçao atual da nave"""
         super().__init__()
         self.screen = screen
         # Cria um retângulo para o projétil em (0, 0) e, em seguida,define a
