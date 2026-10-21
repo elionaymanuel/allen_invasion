@@ -16,5 +16,7 @@ class Settings():
         self.bullet_color = (60, 60, 60)
         self.bullets_allowed = 3
         self.alien_speed_factor = 1
-        self.fleet_direction = 1 #  (+1:direita, -1: vai pra esquerda)
+        self.fleet_direction = 1 #  (+1:direita, -1: vai pra esquerda) 
         self.fleet_drop_speed = 10
+        #vidas:
+        self.ship_limit = 3

@@ -12,6 +12,7 @@ class Ship():
         #inicia cada nova espaçonave na parte inferior central da tela
     
         self.rect.centerx = self.screen_rect.centerx
+        #self.rect.centery = self.screen_rect.centery
         self.rect.bottom = self.screen_rect.bottom
         self.center = float (self.rect.centerx)
         #flags de movimento
@@ -19,6 +20,11 @@ class Ship():
         self.moving_left = False
         self.moving_up = False
         self.moving_down = False
+
+    def center_ship(self):
+        """centraliza a nave na tela"""
+        self.center = self.screen_rect.centerx
+        self.rect.bottom = self.screen_rect.bottom
         
 
     def update(self):
