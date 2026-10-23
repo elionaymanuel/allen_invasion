@@ -1,8 +1,10 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Ship():
+class Ship(Sprite): #herança
     def __init__(self,screen,configs):
         """inicializa a nave colocando-a em sua posiçao inicial"""
+        super(Ship, self).__init__()
         self.screen = screen
         self.configs = configs
         #carregar a imagem da nave e obter seu rect
