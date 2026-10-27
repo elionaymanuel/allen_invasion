@@ -11,7 +11,7 @@ class Settings():
         # quantos pixels por vez a nave se movimenta na direção pressionada
         self.ship_limit = 3
         #configuração dos projeteis
-        self.bullet_width = 500 #largura do retangulo (3)
+        self.bullet_width = 50 #largura do retangulo (3)
         self.bullet_height = 15 # altura do retangulo
         self.bullet_color = (60, 60, 60)
         self.bullets_allowed = 3

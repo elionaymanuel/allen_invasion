@@ -168,7 +168,7 @@ def update_aliens(configs,stats,screen,score,ship,aliens,bullets):
         ship_hit(configs, stats, screen,score, ship, aliens, bullets)
     
     # Verifica se há algum alienígena que atingiu a parte inferior da tela
-    check_aliens_bottom(configs, stats, screen, ship, aliens, bullets)
+    check_aliens_bottom(configs, stats,score, screen, ship, aliens, bullets)
 
 def ship_hit(configs, stats, screen,score, ship, aliens, bullets):
     """Responde ao fato de a espaçonave ter sido atingida por um alienígena."""
@@ -189,13 +189,13 @@ def ship_hit(configs, stats, screen,score, ship, aliens, bullets):
         stats.game_active = False
         pygame.mouse.set_visible(True)
 
-def check_aliens_bottom(configs, stats, screen, ship, aliens, bullets):
+def check_aliens_bottom(configs, stats, score,screen, ship, aliens, bullets):
     """Verifica se algum alienígena alcançou a parte inferior da  tela."""
     screen_rect = screen.get_rect()
     for alien in aliens.sprites():
         if alien.rect.bottom >= screen_rect.bottom:
         # Trata esse caso do mesmo modo que é feito quando a espaçonave é atingida
-            ship_hit(configs, stats, screen, ship, aliens, bullets)
+            ship_hit(configs, stats, screen, score,ship, aliens, bullets)
             break
 
 def check_high_score(stats, score):
